@@ -1,0 +1,9 @@
+jieba==0.42.1
+matplotlib==3.6.1
+numpy==1.24.2
+Pillow==9.3.0
+Pillow==10.1.0
+PySide2==5.15.2.1
+PySide2==5.15.2.1
+Requests==2.31.0
+wordcloud==1.8.2.2

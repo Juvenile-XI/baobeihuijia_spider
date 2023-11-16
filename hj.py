@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QTableWidgetItem
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import *
+from PySide2.QtWidgets import QApplication, QWidget, QTableWidgetItem
+from PySide2.QtGui import QIcon
+from PySide2.QtCore import *
 from mainwin import *
 from sqlwin import *
 import requests
@@ -81,8 +81,8 @@ class Mainwindow(QWidget):
 
 
 class Worker(QThread):
-    Value = pyqtSignal(int)  # 更新进度条
-    text = pyqtSignal(str)
+    Value = Signal(int)  # 更新进度条
+    text = Signal(str)
     begin = 0
     end = 0
     index = 0
@@ -143,6 +143,7 @@ wins = Mainwindow()
 wins.show()
 wins.ui.textBrowser.append('正在创建数据库....')
 try:
+    # check_same_thread=False 允许数据库被子线程使用
     conn = sqlite3.connect('bbhj.sql', check_same_thread=False)
     c = conn.cursor()
     # insert into 宝贝回家 #添加数据
